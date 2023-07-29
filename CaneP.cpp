@@ -58,7 +58,7 @@ void clear()
 }
 
 //Copying chosen elements from one matrix to another (or changing values of chosen elements to other values in a single matrix)
-vector <vector<char>> matrixElementsReplacer(vector <vector<char>> matrixCopyFrom, vector <vector<char>> matrixCopyTo, char searchWhat, char replaceWithWhat, int matrixWidth, int requiredMatrixHight)
+vector <vector<char>> matrixElementsReplacer(vector <vector<char>>& matrixCopyFrom, vector <vector<char>>& matrixCopyTo, char searchWhat, char replaceWithWhat, int matrixWidth, int requiredMatrixHight)
 {
 	for (int i = 0; i < matrixWidth; i++)
 	{
@@ -76,7 +76,7 @@ vector <vector<char>> matrixElementsReplacer(vector <vector<char>> matrixCopyFro
 }
 
 //Grouping zero-ish squares in gridMines
-vector <vector<char>> matrixSingleElementsUniter(vector <vector<char>> matrix)
+vector <vector<char>> matrixSingleElementsUniter(vector <vector<char>>& matrix)
 {
 	char groupLast = 64; //it's a letter 'А' for the first (group of) mine(-s) / variable is used to mark different groups of mines with different letters\
 		(letters are hidden from a player)
@@ -270,7 +270,7 @@ be a counter of dug out squares.\n\n============================================
 }
 
 //Displaying a matrix in a cmd
-void display(vector <vector<char>> grid)
+void display(vector <vector<char>>& grid)
 {
 
 	if (width > 9)   //
@@ -301,7 +301,7 @@ void display(vector <vector<char>> grid)
 }
 
 //A radar to find mines nearby
-int radar(vector <vector<char>> grid, vector <vector<char>> gridMines, int chX, int chY)
+int radar(vector <vector<char>>& grid, vector <vector<char>>& gridMines, int chX, int chY)
 {
 
 	int minesCounter = 0; //how many mines nearby
@@ -417,7 +417,7 @@ void windowFormatter()
 }
 
 //The game itself
-void gameplay(vector <vector<char>> grid, vector <vector<char>> gridMines, int numOfSafes, int numOfMines)
+void gameplay(vector <vector<char>>& grid, vector <vector<char>>& gridMines, int numOfSafes, int numOfMines)
 {
 	if (windowed == true)     //if the game is in a small window, the latter will be shrinked even more
 		system("MODE 60,26");
